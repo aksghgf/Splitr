@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -6,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { FEATURES, STEPS, TESTIMONIALS } from "@/lib/landing";
+import Lottie from "lottie-react";
+import moneyInvestment from "../public/Money Investment.json";
 
 export default function LandingPage() {
   return (
@@ -13,7 +16,7 @@ export default function LandingPage() {
       {/* ───── Hero ───── */}
       <section className="mt-20 pb-12 space-y-10 md:space-y-15 px-5">
         <div className="container mx-auto px-4 md:px-6 text-center space-y-6">
-          <Badge variant="outline" className="bg-green-100 text-green-700">
+          <Badge variant="outline" className="bg-blue-100 text-blue-700">
             Split expenses. Simplify life.
           </Badge>
 
@@ -21,7 +24,7 @@ export default function LandingPage() {
             The smartest way to split expenses with friends
           </h1>
 
-          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed">
+          <p className="mx-auto max-w-[700px] text-blue-500 md:text-xl/relaxed">
             Track shared expenses, split bills effortlessly, and settle up
             quickly. Never worry about who owes who again.
           </p>
@@ -30,7 +33,7 @@ export default function LandingPage() {
             <Button
               asChild
               size="lg"
-              className="bg-green-600 hover:bg-green-700"
+              className="bg-blue-600 hover:bg-blue-700"
             >
               <Link href="/dashboard">
                 Get Started
@@ -41,7 +44,7 @@ export default function LandingPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-green-600 text-green-600 hover:bg-green-50"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50"
             >
               <Link href="#how-it-works">See How It Works</Link>
             </Button>
@@ -49,14 +52,12 @@ export default function LandingPage() {
         </div>
 
         <div className="container mx-auto max-w-5xl overflow-hidden rounded-xl shadow-xl">
-          <div className="gradient p-1 aspect-[16/9]">
-            <Image
-              src="/hero.png"
-              width={1280}
-              height={720}
-              alt="Banner"
-              className="rounded-lg mx-auto"
-              priority
+          <div className="gradient p-1 aspect-[16/9] flex items-center justify-center bg-blue-50">
+            <Lottie
+              animationData={moneyInvestment}
+              className="w-full h-[360px] md:h-[420px]"
+              loop
+              autoplay
             />
           </div>
         </div>
@@ -167,7 +168,7 @@ export default function LandingPage() {
             Join thousands of users who have made splitting expenses
             stress‑free.
           </p>
-          <Button asChild size="lg" className="bg-green-800 hover:opacity-90">
+          <Button asChild size="lg" className="bg-white text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white">
             <Link href="/dashboard">
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />
